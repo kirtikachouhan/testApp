@@ -1,0 +1,13 @@
+  <div *ngIf="!haveFolder">
+    {{noFolderFoundMsg}}
+  </div>
+  <ul *ngIf="haveFolder">
+    <li *ngFor="let item of allData; let i = index">
+      <a (click)="clickedName(i)">{{item.name}}</a>
+      <ul *ngIf="allData[i].subFolder">
+          <li *ngFor="let subitem of allData[i].subFolder;let subi = index">
+            {{subitem.name}}
+          </li>
+        </ul>
+      </li>
+    </ul>
